@@ -1,0 +1,71 @@
+<div id="contact" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">
+				<svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M5.09766 5.09741L15.1731 15.1729" stroke="white" />
+					<path d="M15.1738 5.09741L5.09839 15.1729" stroke="white" />
+				</svg>
+			</button>
+			<div class="popup__forms">
+				<div class="forms__top">
+					<div class="forms__titles">
+						<div class="forms__title">Подобрать квартиру</div>
+						<div class="forms__text">
+							Заполните форму или напишите нам на <a href="mailto:makrostroy@bk.ru">makrostroy@bk.ru</a>
+						</div>
+					</div>
+					<div class="forms__images">
+						<img class="popup-image-1" loading="lazy" src="../img/popup-image-1.png" alt="">
+						<img class="popup-image-2" loading="lazy" src="../img/popup-image-2.png" alt="">
+					</div>
+				</div>
+			</div>
+			<form data-dev data-popup-message="#thanks" action="#" class="forms__form form">
+				<div class="form__inputs">
+					<div class="form__input">
+						<input autocomplete="off" type="text" name="form[]" placeholder="Ваше имя">
+					</div>
+					<div class="form__input">
+						<input data-required="email" autocomplete="off" type="text" name="form[]"
+							data-error="Обязательное поле" placeholder="E-mail">
+					</div>
+					<div class="form__input">
+						<input data-required autocomplete="off" type="text" name="form[]" data-error="Обязательное поле"
+							placeholder="+7 (ххх) ххх-хх-хх" class="telephone">
+					</div>
+					<div class="form__input">
+						<textarea placeholder="Особенности"></textarea>
+					</div>
+				</div>
+				<div class="form__text">
+					Нажимая кнопку, вы соглашаетесь <a href="#">с условиями обработки персональных
+						данных</a>
+				</div>
+				<div class="form__previews"></div>
+				<div class="form__buttons">
+					<button type="submit" class="form__button button-blue">Отправить</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="thanks" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">
+				<svg width="21" height="21" viewbox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M5.09766 5.09741L15.1731 15.1729" stroke="white" />
+					<path d="M15.1738 5.09741L5.09839 15.1729" stroke="white" />
+				</svg>
+			</button>
+			<div class="popup__forms">
+				<div class="forms__top">
+					<div class="forms__titles">
+						<div class="forms__title">Спасибо за заявку, мы с вами свяжимся</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

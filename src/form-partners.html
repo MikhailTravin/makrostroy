@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Форма - станем партнерами"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page form-partners">
+			<div class="breadcrambs breadcrambs">
+				<div class="breadcrambs__container">
+					<div class="breadcrambs__content">
+						<ul>
+							<li>
+								<a href="#">
+									Главная
+									<span>/</span>
+								</a>
+							</li>
+							<li><span>Способы покупки</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="page__forms forms">
+				<img loading="lazy" src="../img/bg-1.png" alt="" class="forms__bg">
+				<div class="forms__container">
+					<div data-watch data-watch-once class="forms__content">
+						<div class="forms__body">
+							<div class="h2">
+								Станем партнерами!
+							</div>
+						</div>
+						<form action="#" class="forms__form form">
+							<div class="form__content">
+								<div class="form__column">
+									<div class="form__title">Укажите предпочитаемый способ связи</div>
+									<div class="form__inputs">
+										<div class="form__input">
+											<input autocomplete="off" type="text" name="form[]"
+												placeholder="Например: тг @myname">
+										</div>
+									</div>
+								</div>
+								<div class="form__column">
+									<div class="form__title">Заполните данные</div>
+									<div class="form__inputs">
+										<div class="form__input">
+											<input autocomplete="off" type="text" name="form[]" placeholder="Ваше имя">
+										</div>
+										<div class="form__input">
+											<input data-required="email" autocomplete="off" type="text" name="form[]"
+												data-error="Обязательное поле" placeholder="E-mail">
+										</div>
+										<div class="form__input">
+											<input data-required autocomplete="off" type="text" name="form[]"
+												data-error="Обязательное поле" placeholder="+7 (ххх) ххх-хх-хх"
+												class="telephone">
+										</div>
+										<div class="form__input">
+											<textarea placeholder="Особенности"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form__text">
+								Нажимая кнопку, вы соглашаетесь <a href="#">с условиями обработки персональных
+									данных</a>
+							</div>
+							<div class="form__buttons">
+								<button type="submit" class="form__button button-blue">Отправить</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="shadow"></div>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

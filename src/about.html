@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"О нас"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<div class="breadcrambs breadcrambs">
+				<div class="breadcrambs__container">
+					<div class="breadcrambs__content">
+						<ul>
+							<li>
+								<a href="#">
+									Главная
+									<span>/</span>
+								</a>
+							</li>
+							<li><span>О нас</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="page__about about">
+				<div data-watch data-watch-once class="about__top">
+					<div class="about__container">
+						<div class="about__titles">
+							<div class="about__title">
+								<div data-watch data-watch-once class="h3">
+									Мы стремимся быть настоящими градостроителями
+								</div>
+								<p data-watch data-watch-once >
+									Выстраиваем не только недвижимость, но и взаимоотношения с жителями
+								</p>
+							</div>
+							<a data-watch data-watch-once data-da=".about__video, 991.98, last" href="#" download="#"
+								class="about__button button-red">
+								Скачать карточку компании
+								<div class="icon-plus"></div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div data-watch data-watch-once data-popup="#video-about" class="about__video">
+					<div class="about__video-titles">
+						<div class="about__play">
+							<svg width="13" height="18" viewBox="0 0 13 18" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M12.0581 8.24522C12.6198 8.65059 12.6198 9.48696 12.0581 9.89233L1.9292 17.2022C1.2575 17.687 0.319219 17.207 0.319219 16.3787L0.31922 1.75889C0.31922 0.930539 1.2575 0.450581 1.9292 0.935339L12.0581 8.24522Z"
+									fill="black" />
+							</svg>
+						</div>
+					</div>
+					<div data-da=".about__video-titles, 991.98, last" class="about__video-title">Прогуляемся
+						по ЖК
+						«Октябренок»<br> в городе Пионерский! </div>
+					<picture class="about__bg">
+						<source media="(max-width: 767.98px)" srcset="../img/banner/banner-1-mob.png" type="image/png">
+						<source srcset="../img/banner/banner-1.png" type="image/png">
+						<img src="../img/banner/banner-1.png" alt="">
+					</picture>
+				</div>
+				<div data-watch data-watch-once class="about__bottom">
+					<div class="about__container">
+						<div class="about__body">
+							<div data-watch data-watch-once class="about__column">
+								<div class="about__item">
+									<div class="about__icon">
+										<svg width="27" height="22" viewBox="0 0 27 22" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M13.7496 17.6562C13.9163 17.6562 14.0675 17.6304 14.2034 17.5788C14.3392 17.5271 14.4692 17.4487 14.5934 17.3438C15.26 16.7396 15.8954 16.1458 16.4996 15.5625C17.1038 14.9792 17.63 14.4063 18.0784 13.8438C18.5267 13.2813 18.8859 12.7346 19.1559 12.2038C19.4259 11.6729 19.5613 11.1571 19.5621 10.6562C19.5621 9.73958 19.2496 8.97917 18.6246 8.375C17.9996 7.77083 17.2496 7.46875 16.3746 7.46875C15.8329 7.46875 15.3384 7.57833 14.8909 7.7975C14.4434 8.01667 14.0629 8.30292 13.7496 8.65625C13.4371 8.30208 13.0467 8.01583 12.5784 7.7975C12.11 7.57917 11.6254 7.46958 11.1246 7.46875C10.2496 7.46875 9.4996 7.77083 8.8746 8.375C8.2496 8.97917 7.9371 9.73958 7.9371 10.6562C7.9371 11.1562 8.07252 11.6721 8.34335 12.2038C8.61418 12.7354 8.97377 13.2821 9.4221 13.8438C9.87043 14.4054 10.3963 14.9783 10.9996 15.5625C11.6029 16.1467 12.2384 16.7404 12.9059 17.3438C13.0309 17.4479 13.1613 17.5262 13.2971 17.5788C13.4329 17.6313 13.5838 17.6571 13.7496 17.6562ZM6.2496 21.8438C5.5621 21.8438 4.97377 21.5992 4.4846 21.11C3.99543 20.6208 3.75043 20.0321 3.7496 19.3438V10.125L2.4996 11.0938C2.20793 11.3021 1.89543 11.3854 1.5621 11.3438C1.22877 11.3021 0.957934 11.1354 0.749601 10.8437C0.541267 10.5521 0.463351 10.2396 0.515851 9.90625C0.568351 9.57292 0.729601 9.30208 0.999601 9.09375L12.2184 0.5C12.4475 0.333333 12.6925 0.208333 12.9534 0.125C13.2142 0.0416665 13.4796 0 13.7496 0C14.0196 0 14.2854 0.0416665 14.5471 0.125C14.8088 0.208333 15.0534 0.333333 15.2809 0.5L26.5308 9.09375C26.8017 9.30208 26.9579 9.57292 26.9996 9.90625C27.0413 10.2396 26.9579 10.5521 26.7496 10.8437C26.5413 11.1146 26.2704 11.2708 25.9371 11.3125C25.6038 11.3542 25.3017 11.2708 25.0308 11.0625L23.7496 10.125V19.3438C23.7496 20.0312 23.505 20.62 23.0159 21.11C22.5267 21.6 21.9379 21.8446 21.2496 21.8438H6.2496Z"
+												fill="#EB1C25" />
+										</svg>
+									</div>
+									<div data-watch class="about__text">
+										Пересилили<br>
+										из аварийного жилья более<br>
+										140 семей
+									</div>
+								</div>
+							</div>
+							<div data-watch data-watch-once class="about__column">
+								<div class="about__item">
+									<div class="about__icon">
+										<svg width="27" height="22" viewBox="0 0 27 22" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M13.7496 17.6562C13.9163 17.6562 14.0675 17.6304 14.2034 17.5788C14.3392 17.5271 14.4692 17.4487 14.5934 17.3438C15.26 16.7396 15.8954 16.1458 16.4996 15.5625C17.1038 14.9792 17.63 14.4063 18.0784 13.8438C18.5267 13.2813 18.8859 12.7346 19.1559 12.2038C19.4259 11.6729 19.5613 11.1571 19.5621 10.6562C19.5621 9.73958 19.2496 8.97917 18.6246 8.375C17.9996 7.77083 17.2496 7.46875 16.3746 7.46875C15.8329 7.46875 15.3384 7.57833 14.8909 7.7975C14.4434 8.01667 14.0629 8.30292 13.7496 8.65625C13.4371 8.30208 13.0467 8.01583 12.5784 7.7975C12.11 7.57917 11.6254 7.46958 11.1246 7.46875C10.2496 7.46875 9.4996 7.77083 8.8746 8.375C8.2496 8.97917 7.9371 9.73958 7.9371 10.6562C7.9371 11.1562 8.07252 11.6721 8.34335 12.2038C8.61418 12.7354 8.97377 13.2821 9.4221 13.8438C9.87043 14.4054 10.3963 14.9783 10.9996 15.5625C11.6029 16.1467 12.2384 16.7404 12.9059 17.3438C13.0309 17.4479 13.1613 17.5262 13.2971 17.5788C13.4329 17.6313 13.5838 17.6571 13.7496 17.6562ZM6.2496 21.8438C5.5621 21.8438 4.97377 21.5992 4.4846 21.11C3.99543 20.6208 3.75043 20.0321 3.7496 19.3438V10.125L2.4996 11.0938C2.20793 11.3021 1.89543 11.3854 1.5621 11.3438C1.22877 11.3021 0.957934 11.1354 0.749601 10.8437C0.541267 10.5521 0.463351 10.2396 0.515851 9.90625C0.568351 9.57292 0.729601 9.30208 0.999601 9.09375L12.2184 0.5C12.4475 0.333333 12.6925 0.208333 12.9534 0.125C13.2142 0.0416665 13.4796 0 13.7496 0C14.0196 0 14.2854 0.0416665 14.5471 0.125C14.8088 0.208333 15.0534 0.333333 15.2809 0.5L26.5308 9.09375C26.8017 9.30208 26.9579 9.57292 26.9996 9.90625C27.0413 10.2396 26.9579 10.5521 26.7496 10.8437C26.5413 11.1146 26.2704 11.2708 25.9371 11.3125C25.6038 11.3542 25.3017 11.2708 25.0308 11.0625L23.7496 10.125V19.3438C23.7496 20.0312 23.505 20.62 23.0159 21.11C22.5267 21.6 21.9379 21.8446 21.2496 21.8438H6.2496Z"
+												fill="#EB1C25" />
+										</svg>
+									</div>
+									<div data-watch class="about__text">
+										Финансируем<br>
+										футбольную команду<br>
+										Юность
+									</div>
+								</div>
+							</div>
+							<div data-watch data-watch-once class="about__column">
+								<div class="about__item">
+									<div class="about__icon">
+										<svg width="27" height="22" viewBox="0 0 27 22" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M13.7496 17.6562C13.9163 17.6562 14.0675 17.6304 14.2034 17.5788C14.3392 17.5271 14.4692 17.4487 14.5934 17.3438C15.26 16.7396 15.8954 16.1458 16.4996 15.5625C17.1038 14.9792 17.63 14.4063 18.0784 13.8438C18.5267 13.2813 18.8859 12.7346 19.1559 12.2038C19.4259 11.6729 19.5613 11.1571 19.5621 10.6562C19.5621 9.73958 19.2496 8.97917 18.6246 8.375C17.9996 7.77083 17.2496 7.46875 16.3746 7.46875C15.8329 7.46875 15.3384 7.57833 14.8909 7.7975C14.4434 8.01667 14.0629 8.30292 13.7496 8.65625C13.4371 8.30208 13.0467 8.01583 12.5784 7.7975C12.11 7.57917 11.6254 7.46958 11.1246 7.46875C10.2496 7.46875 9.4996 7.77083 8.8746 8.375C8.2496 8.97917 7.9371 9.73958 7.9371 10.6562C7.9371 11.1562 8.07252 11.6721 8.34335 12.2038C8.61418 12.7354 8.97377 13.2821 9.4221 13.8438C9.87043 14.4054 10.3963 14.9783 10.9996 15.5625C11.6029 16.1467 12.2384 16.7404 12.9059 17.3438C13.0309 17.4479 13.1613 17.5262 13.2971 17.5788C13.4329 17.6313 13.5838 17.6571 13.7496 17.6562ZM6.2496 21.8438C5.5621 21.8438 4.97377 21.5992 4.4846 21.11C3.99543 20.6208 3.75043 20.0321 3.7496 19.3438V10.125L2.4996 11.0938C2.20793 11.3021 1.89543 11.3854 1.5621 11.3438C1.22877 11.3021 0.957934 11.1354 0.749601 10.8437C0.541267 10.5521 0.463351 10.2396 0.515851 9.90625C0.568351 9.57292 0.729601 9.30208 0.999601 9.09375L12.2184 0.5C12.4475 0.333333 12.6925 0.208333 12.9534 0.125C13.2142 0.0416665 13.4796 0 13.7496 0C14.0196 0 14.2854 0.0416665 14.5471 0.125C14.8088 0.208333 15.0534 0.333333 15.2809 0.5L26.5308 9.09375C26.8017 9.30208 26.9579 9.57292 26.9996 9.90625C27.0413 10.2396 26.9579 10.5521 26.7496 10.8437C26.5413 11.1146 26.2704 11.2708 25.9371 11.3125C25.6038 11.3542 25.3017 11.2708 25.0308 11.0625L23.7496 10.125V19.3438C23.7496 20.0312 23.505 20.62 23.0159 21.11C22.5267 21.6 21.9379 21.8446 21.2496 21.8438H6.2496Z"
+												fill="#EB1C25" />
+										</svg>
+									</div>
+									<div data-watch data-watch-once class="about__text">
+										Помогаем социальному<br> пансионату<br>
+										“Сосновая усадьба”
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="page__about-info about-info">
+				<div class="about-info__container">
+					<div data-watch data-watch-once class="about-info__titles">
+						<div class="h3">
+							Специализируясь
+							на строительстве жилых комплексов, мы стараемся сочетать комфорт, стиль и доступность.
+						</div>
+					</div>
+					<div data-watch data-watch-once class="about-info__body">
+						<div data-watch data-watch-once class="about-info__column">
+							<div class="about-info__item">
+								<div data-watch data-watch-once class="about-info__title">Общая площадь</div>
+								<div data-watch data-watch-once class="about-info__subtitle">183,725.7 м²</div>
+							</div>
+						</div>
+						<div data-watch data-watch-once class="about-info__column">
+							<div class="about-info__item">
+								<div data-watch data-watch-once class="about-info__title">Жилая площадь</div>
+								<div data-watch data-watch-once class="about-info__subtitle">121,073.3 м²</div>
+							</div>
+						</div>
+						<div data-watch data-watch-once class="about-info__column">
+							<div class="about-info__item">
+								<div data-watch data-watch-once class="about-info__title">Квартир</div>
+								<div data-watch data-watch-once class="about-info__subtitle">2,960 шт</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="page__certification certification">
+				<div class="certification__container">
+					<div data-watch data-watch-once class="certification__content">
+						<div data-watch data-watch-once class="certification__titles">
+							<div class="h3">
+								Сертификация
+								и уставные
+								документы
+							</div>
+						</div>
+						<div class="certification__body">
+							<div data-watch data-watch-once class="certification__column">
+								<a href="#" class="certification__item">
+									<div class="certification__name">Сертификат №1</div>
+									<div class="certification__arrow arrow">
+										<svg width="9" height="9" viewBox="0 0 9 9" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M0.475302 8.18282L7.84103 0.817098M7.84103 0.817098L0.366984 0.817098M7.84103 0.817098V8.29114"
+												stroke="white" />
+										</svg>
+									</div>
+								</a>
+							</div>
+							<div data-watch data-watch-once class="certification__column">
+								<a href="#" class="certification__item">
+									<div class="certification__name">Сертификат №1</div>
+									<div class="certification__arrow arrow">
+										<svg width="9" height="9" viewBox="0 0 9 9" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M0.475302 8.18282L7.84103 0.817098M7.84103 0.817098L0.366984 0.817098M7.84103 0.817098V8.29114"
+												stroke="white" />
+										</svg>
+									</div>
+								</a>
+							</div>
+							<div data-watch data-watch-once class="certification__column">
+								<a href="#" class="certification__item">
+									<div class="certification__name">Сертификат №1</div>
+									<div class="certification__arrow arrow">
+										<svg width="9" height="9" viewBox="0 0 9 9" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M0.475302 8.18282L7.84103 0.817098M7.84103 0.817098L0.366984 0.817098M7.84103 0.817098V8.29114"
+												stroke="white" />
+										</svg>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="page__forms forms">
+				<img loading="lazy" src="../img/bg-1.png" alt="" class="forms__bg">
+				<div class="forms__container">
+					<div data-watch data-watch-once class="forms__content">
+						<div class="forms__body">
+							<div class="h2">
+								Подобрать квартиру
+							</div>
+							<div class="forms__text">
+								Заполните форму или напишите нам на <a
+									href="mailto:makrostroy@bk.ru">makrostroy@bk.ru</a>
+							</div>
+						</div>
+						<form action="#" class="forms__form form">
+							<div class="form__inputs">
+								<div class="form__input">
+									<input autocomplete="off" type="text" name="form[]" placeholder="Ваше имя">
+								</div>
+								<div class="form__input">
+									<input data-required="email" autocomplete="off" type="text" name="form[]"
+										data-error="Обязательное поле" placeholder="E-mail">
+								</div>
+								<div class="form__input">
+									<input data-required autocomplete="off" type="text" name="form[]"
+										data-error="Обязательное поле" placeholder="+7 (ххх) ххх-хх-хх"
+										class="telephone">
+								</div>
+								<div class="form__input">
+									<textarea placeholder="Особенности"></textarea>
+								</div>
+							</div>
+							<div class="form__text">
+								Нажимая кнопку, вы соглашаетесь <a href="#">с условиями обработки персональных
+									данных</a>
+							</div>
+							<div class="form__previews"></div>
+							<div class="form__buttons">
+								<button type="submit" class="form__button button-blue">Отправить</button>
+								<div class="form__attach-file">
+									<input type="file" id="file" accept="image/*" multiple />
+									<div class="form__button-file button-blue">
+										Прикрепить файл
+										<div class="form__plus icon-plus"></div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="shadow"></div>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_popup.htm',{})
+	<div id="video-about" aria-hidden="true" class="popup video">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__video">
+					<video playsinline controls poster="../img/banner/banner-1.png" class="popup__item-video"
+						src="./files/videos/video.mp4">
+						<source src="./files/banner/banner-1.mp4" type="video/mp4">
+					</video>
+				</div>
+			</div>
+		</div>
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>
