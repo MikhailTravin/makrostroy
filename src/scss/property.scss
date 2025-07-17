@@ -1,0 +1,20 @@
+//Недвижимость
+.property {
+    padding: 50px 0px;
+    // .property__container
+    &__container {
+    }
+    // .property__titles
+    &__titles {
+    }
+    // .property__content
+    &__content {
+    }
+    // .property__tabs
+    &__tabs {
+    }
+}
+
+.main-property {
+    background-color: $white;
+}

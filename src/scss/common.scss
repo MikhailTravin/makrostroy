@@ -1,0 +1,558 @@
+.h1 {
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 91%;
+    letter-spacing: -0.03em;
+    @media (max-width: $mobile) {
+        font-size: 32px;
+    }
+}
+
+.h2 {
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 91%;
+    letter-spacing: -0.03em;
+    color: $darkblue;
+    @media (max-width: $mobile) {
+        font-size: 32px;
+    }
+}
+
+.h3 {
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 91%;
+    letter-spacing: -0.03em;
+    color: $darkblue;
+    @media (max-width: $mobile) {
+        font-size: 32px;
+        line-height: 100%;
+    }
+}
+
+p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 117%;
+    letter-spacing: -0.03em;
+    color: $black;
+}
+
+.titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 0px 35px 0px;
+    @media (max-width: $mobile) {
+        margin: 0px 0px 30px 0px;
+    }
+}
+
+.icon-plus {
+    position: relative;
+    flex: 0 0 11px;
+    width: 11px;
+    height: 11px;
+    margin: 0px 0px 0px 8px;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transition: background-color 0.3s ease 0s;
+        margin: 0px 0px 0px -5px;
+        background-color: $white;
+        width: 11px;
+        height: 1.5px;
+    }
+    &::before {
+        transform: rotate(-90deg);
+    }
+}
+
+.shadow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(16px);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 30;
+    transition: opacity 0.3s ease 0s;
+    .menu-hovered & {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+//========================================================================================================================================================
+
+//Навигация
+
+.pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .swiper-pagination-bullet {
+        cursor: pointer;
+        flex: 0 1 81px;
+        margin: 0px 5px 0px 0px;
+        background-color: rgba(255, 255, 255, 0.5);
+        transition: background-color 0.3s ease 0s;
+        height: 3px;
+        &:last-child {
+            margin: 0px 0px 0px 0px;
+        }
+        &:hover {
+            background-color: $white;
+        }
+        @media (max-width: $mobile) {
+            flex: 0 1 30px;
+            height: 2px;
+            margin: 0px 3px 0px 0px;
+        }
+    }
+    .swiper-pagination-bullet-active {
+        background-color: $white;
+    }
+}
+
+.arrows {
+    display: flex;
+    margin: 0px 0px 0px 10px;
+}
+
+.arrow {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px;
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    background-color: #f0f0f0;
+    margin: 0px 5px 0px 0px;
+    transition: background-color 0.3s ease 0s;
+    svg {
+        margin: 0px 0px 0px 1px;
+        * {
+            transition: stroke 0.3s ease 0s;
+        }
+    }
+    &:hover {
+        background-color: $blue;
+        svg {
+            * {
+                stroke: $white;
+            }
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+//Форма
+.forms {
+    position: relative;
+    background: #f0f0f0;
+    padding: 70px 0px;
+    @media (max-width: $mobile) {
+        padding: 84px 0px;
+    }
+    // .forms__bg
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    // .forms__container
+    &__container {
+    }
+    // .forms__content
+    &__content {
+        position: relative;
+        z-index: 10;
+        background: $blue;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 8px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 0.6s ease,
+            transform 0.6s ease;
+        &._watcher-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            justify-content: start;
+            padding: 35px 16px 28px 16px;
+        }
+    }
+    // .forms__body
+    &__body {
+        flex: 0 1 330px;
+        display: flex;
+        flex-direction: column;
+        padding: 46px 0px 38px 40px;
+        @media (max-width: $mobile) {
+            flex: 1 1 auto;
+            padding: 0px 0px 20px 0px;
+        }
+        .h2 {
+            color: $white;
+            flex: 1 1 auto;
+            margin: 0px 0px 20px 0px;
+        }
+    }
+    // .forms__top
+    &__top {
+        position: relative;
+        display: flex;
+        @media (max-width: $mobile) {
+            flex-direction: column;
+        }
+    }
+    // .forms__titles
+    &__titles {
+        position: relative;
+        z-index: 10;
+        max-width: 345px;
+        padding: 32px 0px 40px 0px;
+        @media (max-width: $mobile) {
+            padding: 0px 0px 0px 0px;
+            max-width: 100%;
+        }
+    }
+    // .forms__title
+    &__title {
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 91%;
+        letter-spacing: -0.03em;
+        color: $black;
+        margin: 0px 0px 13px 0px;
+        @media (max-width: $mobile) {
+            font-size: 30px;
+            margin: 0px 0px 20px 0px;
+        }
+    }
+    // .forms__images
+    &__images {
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        @media (max-width: $mobile) {
+            position: relative;
+            flex-direction: row-reverse;
+            align-items: flex-end;
+        }
+        .popup-image-1 {
+            height: auto;
+            width: 112px;
+            @media (max-width: $mobile) {
+                width: 46px;
+            }
+        }
+        .popup-image-2 {
+            height: 56px;
+            width: auto;
+            @media (max-width: $mobile) {
+                width: 77px;
+                height: auto;
+            }
+        }
+    }
+    // .forms__text
+    &__text {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 117%;
+        letter-spacing: -0.03em;
+        color: rgba(255, 255, 255, 0.6);
+        @media (max-width: $mobile) {
+            font-size: 18px;
+        }
+        a {
+            border-bottom: 1px solid $white;
+            color: $white;
+            transition: border-bottom 0.3s ease 0s;
+            &:hover {
+                border-bottom: 1px solid transparent;
+            }
+        }
+    }
+    // .forms__form
+    &__form {
+        position: relative;
+        z-index: 10;
+        flex: 0 1 520px;
+        padding: 30px 30px 26px 30px;
+        @media (max-width: $mobile) {
+            flex: 1 1 auto;
+            padding: 0px 0px 0px 0px;
+        }
+    }
+}
+.form {
+    // .form__content
+    &__content {
+        margin: -15px 0px;
+        @media (max-width: $mobile) {
+            margin: -10px 0px;
+        }
+    }
+    // .form__column
+    &__column {
+        padding: 15px 0px;
+        @media (max-width: $mobile) {
+            padding: 10px 0px;
+        }
+    }
+    // .form__title
+    &__title {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 117%;
+        letter-spacing: -0.03em;
+        text-align: center;
+        color: $white;
+        margin: 0px 0px 20px 0px;
+        @media (max-width: $mobile) {
+            text-align: left;
+        }
+    }
+    // .form__inputs
+    &__inputs {
+        margin: -3px 0px;
+    }
+    // .form__input
+    &__input {
+        padding: 3px 0px;
+        input {
+            border: 1px solid transparent;
+            width: 100%;
+            border-radius: 5px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.14);
+            color: $white;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 150%;
+            letter-spacing: -0.01em;
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.6);
+            }
+            &._form-error {
+                border: 1px solid red;
+            }
+            &._form-focus {
+                border: 1px solid $darkblue;
+            }
+        }
+        textarea {
+            resize: none;
+            border: 1px solid transparent;
+            width: 100%;
+            border-radius: 5px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.14);
+            color: $white;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 150%;
+            letter-spacing: -0.01em;
+            height: 113px;
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.6);
+            }
+            &._form-error {
+                border: 1px solid red;
+            }
+            &._form-focus {
+                border: 1px solid $darkblue;
+            }
+        }
+    }
+    // .form__error
+    &__error {
+        color: $red;
+        font-size: 12px;
+        margin: 3px 0px 0px 0px;
+    }
+    // .form__text
+    &__text {
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 150%;
+        letter-spacing: -0.01em;
+        color: rgba(255, 255, 255, 0.6);
+        margin: 6px 0px 0px 0px;
+        a {
+            color: $white;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s ease 0s;
+            &:hover {
+                border-bottom: 1px solid $white;
+            }
+        }
+    }
+    // .form__buttons
+    &__buttons {
+        display: flex;
+        margin: 20px 0px 0px 0px;
+    }
+    // .form__button
+    &__button {
+        padding: 11px 25px !important;
+        background-color: $white !important;
+        color: $blue !important;
+        &:hover {
+            background-color: #d1d1d1 !important;
+            color: $black !important;
+        }
+    }
+    // .form__attach-file
+    &__attach-file {
+        cursor: pointer;
+        position: relative;
+        z-index: 10;
+        display: inline-block;
+        margin: 0px 0px 0px 10px;
+        overflow: hidden;
+        &:hover {
+            .form__button-file {
+                background-color: $darkblue !important;
+            }
+        }
+        input {
+            cursor: pointer !important;
+            pointer-events: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 3;
+        }
+    }
+    // .form__previews
+    &__previews {
+        display: flex;
+        flex-wrap: wrap;
+        &._active {
+            padding: 20px 0px 0px 0px;
+            margin: -5px;
+        }
+    }
+    // .form__preview-item
+    &__preview-item {
+        flex: 0 1 auto;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: $white;
+        position: relative;
+        padding: 5px;
+    }
+    // .form__preview-icon
+    &__preview-icon {
+    }
+    // .form__previews
+    &__preview-close {
+        font-size: 18px;
+        cursor: pointer;
+        color: $red;
+        margin: 0px 0px 0px 3px;
+    }
+    // .form__button-file
+    &__button-file {
+        position: relative;
+        z-index: 2;
+        pointer-events: none;
+        cursor: pointer;
+        background-color: #071a4f !important;
+    }
+    // .form__plus
+    &__plus {
+    }
+}
+
+//========================================================================================================================================================
+
+//Хлебные крошки
+.breadcrambs {
+    padding: 10px 0px;
+    @media (max-width: $mobileSmall) {
+        display: none;
+    }
+    // .breadcrambs__container
+    &__container {
+    }
+    // .breadcrambs__content
+    &__content {
+        ul {
+            display: inline;
+            flex-wrap: nowrap;
+            li {
+                display: inline;
+                &:last-child {
+                    pointer-events: none;
+                    color: $mainColor;
+                    span {
+                        font-weight: 500;
+                        font-size: 11px;
+                        line-height: 100%;
+                        letter-spacing: -0.03em;
+                        color: rgba(0, 0, 0, 0.35);
+                    }
+                }
+                a {
+                    transition: all 0.3s ease 0s;
+                    font-weight: 500;
+                    font-size: 11px;
+                    line-height: 100%;
+                    letter-spacing: -0.03em;
+                    color: $black;
+                    transition: color 0.3s ease 0s;
+                    span {
+                        font-weight: 500;
+                        font-size: 11px;
+                        line-height: 100%;
+                        transition: color 0.3s ease 0s;
+                        letter-spacing: -0.03em;
+                        margin: 0px 5px;
+                        color: rgba(0, 0, 0, 0.35);
+                        transition: all 0.3s ease 0s;
+                    }
+                    &:hover {
+                        color: $blue;
+                    }
+                }
+            }
+        }
+    }
+}

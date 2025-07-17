@@ -1,0 +1,791 @@
+//Способы покупки
+.purchase {
+    padding: 16px 0px 20px 0px;
+    @media (max-width: $pc) {
+        padding: 16px 0px 0px 0px;
+    }
+    @media (max-width: $tablet) {
+        padding: 20px 0px 34px 0px;
+    }
+    // .purchase__top
+    &__top {
+        padding: 0px 0px 150px 0px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 1.5s ease,
+            transform 1.5s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: $tablet) {
+            padding: 0px 0px 30px 0px;
+        }
+    }
+    // .purchase__bottom
+    &__bottom {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 1.5s ease,
+            transform 1.5s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.top-purchase {
+    // .top-purchase__container
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    // .top-purchase__titles
+    &__titles {
+        margin: 0px 0px 35px 0px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: $tablet) {
+            margin: 0px 0px 0px 0px;
+        }
+        .h2 {
+            @media (max-width: $tablet) {
+                margin: 0px 0px 15px 0px;
+            }
+        }
+    }
+    // .top-purchase__body
+    &__body {
+        width: calc(100% + 10px);
+        display: flex;
+        flex-wrap: wrap;
+        margin: -5px;
+        @media (max-width: $mobileSmall) {
+            flex-direction: column;
+            margin: -4px 0px;
+            width: 100%;
+        }
+    }
+    // .top-purchase__column
+    &__column {
+        flex: 0 1 25%;
+        padding: 5px;
+        opacity: 0;
+        transform: scale(0.9);
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: scale(1);
+        }
+        @media (max-width: $tablet) {
+            flex: 0 1 50%;
+        }
+        @media (max-width: $mobileSmall) {
+            flex: 1 1 auto;
+            padding: 4px 0px;
+        }
+    }
+    // .top-purchase__item
+    &__item {
+        border-radius: 8px;
+        padding: 15px;
+        background-color: $white;
+        height: 100%;
+        @media (max-width: $mobileSmall) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 9px 15px 10px;
+        }
+    }
+    // .top-purchase__title
+    &__title {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: -0.03em;
+        color: $darkblue;
+        margin: 0px 0px 17px 0px;
+        @media (max-width: $mobileSmall) {
+            margin: 0px 20px 0px 0px;
+            br {
+                display: none;
+            }
+        }
+    }
+    // .top-purchase__icon
+    &__icon {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        padding: 5px;
+        flex: 0 0 28px;
+        width: 28px;
+        height: 28px;
+        background-color: $blue;
+        transition: background-color 0.3s ease 0s;
+        svg {
+            * {
+                transition: stroke 0.3s ease 0s;
+            }
+        }
+    }
+    // .top-purchase__button
+    &__button {
+        margin: 35px 0px 0px 0px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: $tablet) {
+            margin: 0px 0px 0px 0px;
+        }
+        @media (max-width: $mobile) {
+            width: 100%;
+        }
+    }
+}
+
+.bottom-purchase {
+    position: relative;
+    // .bottom-purchase__container
+    &__container {
+        @media (max-width: $pc) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+        }
+    }
+    // .bottom-purchase__banks
+    &__banks {
+        max-width: 700px;
+        margin: 0px 40px 0px 0px;
+        @media (max-width: $tablet) {
+            max-width: 100%;
+            margin: 0px 0px 45px 0px;
+        }
+    }
+    // .bottom-purchase__title
+    &__title {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 117%;
+        letter-spacing: -0.03em;
+        color: $black;
+        margin: 0px 0px 10px 0px;
+        display: block;
+        @media (max-width: $mobile) {
+            font-weight: 600;
+            font-size: 12px;
+            margin: 0px 0px 20px 0px;
+        }
+    }
+    // .bottom-purchase__body
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -10px -23px;
+        @media (max-width: $mobile) {
+            margin: -10px;
+        }
+    }
+    // .bottom-purchase__column
+    &__column {
+        flex: 0 1 auto;
+        padding: 10px 23px;
+        opacity: 0;
+        transform: scale(0.9);
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: scale(1);
+        }
+        @media (max-width: $mobile) {
+            padding: 10px;
+            flex: 0 1 33.3333%;
+        }
+        @media (max-width: $mobileSmall) {
+            flex: 1 1 50%;
+        }
+        img {
+            max-width: 100%;
+            max-height: 20px;
+            @media (max-width: $mobile) {
+                max-height: 15px;
+            }
+        }
+    }
+    // .bottom-purchase__image
+    &__image {
+        position: absolute;
+        right: 0;
+        bottom: -10px;
+        opacity: 0;
+        transform: scale(0.9);
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: scale(1);
+        }
+        @media (max-width: $pc) {
+            position: relative;
+            right: -15px;
+            bottom: 0;
+        }
+        @media (max-width: $tablet) {
+            right: auto;
+            left: 0;
+        }
+        img {
+            width: 100%;
+            height: 95px;
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+//Кто такой ипотечный брокер
+.broker {
+    background-color: $white;
+    padding: 90px 0px 70px 0px;
+    @media (max-width: $mobile) {
+        padding: 100px 0px 50px 0px;
+    }
+    // .broker__container
+    &__container {
+    }
+    // .broker__content
+    &__content {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 1.5s ease,
+            transform 1.5s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    // .broker__top
+    &__top {
+        display: flex;
+        align-items: center;
+        padding: 0px 0px 40px 0px;
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            align-items: start;
+        }
+    }
+    // .broker__image
+    &__image {
+        position: relative;
+        flex: 0 1 550px;
+        margin: 0px 40px 0px 0px;
+        display: flex;
+        justify-content: center;
+        @media (max-width: $tablet) {
+            flex: 1 1 auto;
+            width: 100%;
+            margin: 0px 0px 40px 0px;
+        }
+    }
+    // .broker__bg
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #e5e5e5;
+        opacity: 0;
+        transform: scale(0.9);
+        transition:
+            opacity 1.5s ease,
+            transform 1.5s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    // .broker__img
+    &__img {
+        position: relative;
+        z-index: 5;
+        margin: -76px 0px 0px 0px;
+        max-width: 438px;
+        max-height: 400px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: $mobile) {
+            margin: -50px 0px 0px 0px;
+            max-width: 100%;
+        }
+    }
+    // .broker__titles
+    &__titles {
+        flex: 0 1 470px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: $tablet) {
+            flex: 1 1 auto;
+        }
+        .h2 {
+            margin: 0px 0px 15px 0px;
+        }
+    }
+    // .broker__text
+    &__text {
+        p {
+            margin: 0px 0px 16px 0px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+
+            &._watcher-view {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+    // .broker__bottom
+    &__bottom {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 1.5s ease,
+            transform 1.5s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    // .broker__body
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -5px;
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            margin: -5px 0px;
+        }
+    }
+    // .broker__column
+    &__column {
+        flex: 0 1 50%;
+        padding: 5px;
+        opacity: 0;
+        transform: scale(0.9);
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: scale(1);
+        }
+        @media (max-width: $mobile) {
+            flex: 1 1 auto;
+            padding: 5px 0px;
+        }
+    }
+    // .broker__item
+    &__item {
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        padding: 25px;
+        height: 100%;
+        background-color: $white;
+        @media (max-width: $mobile) {
+            padding: 15px 15px 25px 10px;
+        }
+    }
+    // .broker__title
+    &__title {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: -0.03em;
+        color: $black;
+        margin: 0px 0px 20px 0px;
+        @media (max-width: $mobile) {
+            font-size: 18px;
+            margin: 0px 0px 15px 0px;
+        }
+    }
+    // .broker__subtitle
+    &__subtitle {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 117%;
+        letter-spacing: -0.03em;
+        color: $black;
+    }
+}
+
+//========================================================================================================================================================
+
+//Ипотечный калькулятор
+.calculator {
+    background-color: $white;
+    padding: 0px 0px 30px 0px;
+    @media (max-width: $mobile) {
+        padding: 0px 0px 60px 0px;
+    }
+    // .calculator__container
+    &__container {
+    }
+    // .calculator__content
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 1.5s ease,
+            transform 1.5s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            justify-content: start;
+        }
+    }
+    // .calculator__titles
+    &__titles {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        flex: 0 1 400px;
+        margin: 0px 30px 0px 0px;
+        @media (max-width: $tablet) {
+            flex: 1 1 auto;
+            margin: 0px 0px 35px 0px;
+            width: 100%;
+        }
+        .h2 {
+            margin: 0px 0px 40px 0px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+
+            &._watcher-view {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            @media (max-width: $tablet) {
+                text-align: left;
+                margin: 0px 0px 0px 0px;
+            }
+        }
+    }
+    // .calculator__button
+    &__button {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: $tablet) {
+            margin: 35px 0px 0px 0px;
+        }
+        @media (max-width: $mobile) {
+            width: 100%;
+        }
+    }
+    // .calculator__body
+    &__body {
+        flex: 0 1 550px;
+        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
+        overflow: hidden;
+        @media (max-width: $tablet) {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column-reverse;
+            box-shadow: none;
+            width: 100%;
+        }
+    }
+    // .calculator__results
+    &__results {
+        background: #f0f0f0;
+        padding: 24px 20px 20px 20px;
+        opacity: 0;
+        transform: translateX(-20px);
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        @media (max-width: $mobile) {
+            padding: 35px 10px 20px 10px;
+        }
+    }
+    // .calculator__controls
+    &__controls {
+        background: $black;
+        padding: 25px 25px 35px 25px;
+        opacity: 0;
+        transform: translateX(20px);
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+
+        &._watcher-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        @media (max-width: $mobile) {
+            padding: 35px 10px;
+        }
+    }
+}
+
+.results-calculator {
+    // .results-calculator__title
+    &__title {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 98%;
+        letter-spacing: -0.03em;
+        color: $black;
+        margin: 0px 0px 10px 0px;
+        @media (max-width: $mobile) {
+            margin: 0px 0px 24px 0px;
+        }
+    }
+    // .results-calculator__body
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+        }
+    }
+    // .results-calculator__result
+    &__result {
+        flex: 0 1 200px;
+        font-weight: 500;
+        font-size: 38px;
+        line-height: 81%;
+        color: $blue;
+        @media (max-width: $mobile) {
+            flex: 1 1 auto;
+            margin: 0px 0px 25px 0px;
+        }
+    }
+    // .results-calculator__additional-info
+    &__additional-info {
+        flex: 0 1 250px;
+        margin: 0px 0px 2px 0px;
+        &:last-child {
+            margin: 0px 0px 0px 0px;
+        }
+        @media (max-width: $mobile) {
+            flex: 1 1 auto;
+            margin: 0px 0px 10px 0px;
+            width: 100%;
+        }
+    }
+    // .results-calculator__info-item
+    &__info-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    // .results-calculator__info-label
+    &__info-label {
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 120%;
+        letter-spacing: -0.03em;
+        color: $black;
+        margin: 0px 10px 0px 0px;
+    }
+    // .results-calculator__info-value
+    &__info-value {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: -0.02em;
+        text-align: right;
+        color: $black;
+    }
+}
+
+.controls-calculator {
+    // .controls-calculator__body
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -12px -5px;
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            margin: -12px 0px;
+        }
+    }
+    // .controls-calculator__control
+    &__control {
+        flex: 0 1 50%;
+        padding: 12px 5px;
+        @media (max-width: $mobile) {
+            flex: 1 1 auto;
+            padding: 12px 0px;
+        }
+    }
+    // .controls-calculator__label
+    &__label {
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 150%;
+        letter-spacing: -0.01em;
+        color: $white;
+        margin: 0px 0px 6px 0px;
+    }
+    // .controls-calculator__range
+    &__range {
+    }
+    // .controls-calculator__value
+    &__value {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.14);
+        border-radius: 5px 5px 0 0;
+        padding: 8px 10px 10px 10px;
+        input {
+            width: 100%;
+            background-color: transparent;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 150%;
+            letter-spacing: -0.01em;
+            color: $white;
+        }
+    }
+    // .controls-calculator__currency-symbol
+    &__currency-symbol {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 150%;
+        letter-spacing: -0.01em;
+        color: $white;
+    }
+    // .controls-calculator__buttons
+    &__buttons {
+        padding: 13px 0px 0px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: -1px;
+    }
+    // .controls-calculator__button
+    &__button {
+        flex: 0 1 auto;
+        padding: 1px;
+        &.active {
+            span {
+                background-color: $white;
+                color: $black;
+            }
+        }
+        span {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+            padding: 2px 3px;
+            background: rgba(0, 0, 0, 0.2);
+            font-weight: 400;
+            font-size: 11px;
+            line-height: 120%;
+            letter-spacing: -0.03em;
+            text-transform: lowercase;
+            color: $white;
+            transition:
+                background-color 0.3s ease 0s,
+                color 0.3s ease 0s;
+            &:hover {
+                color: $black;
+                background-color: $white;
+            }
+        }
+    }
+}

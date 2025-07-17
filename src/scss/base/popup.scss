@@ -1,0 +1,206 @@
+body::after {
+	content: "";
+	backdrop-filter: blur(16px);
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: opacity 0.8s ease 0s;
+	pointer-events: none;
+	z-index: 149;
+}
+.popup-show body::after {
+	opacity: 1;
+}
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	padding: 30px 10px;
+	transition: visibility 0.8s ease 0s;
+	visibility: hidden;
+	pointer-events: none;
+}
+.popup_show {
+	z-index: 150;
+	visibility: visible;
+	overflow: auto;
+	pointer-events: auto;
+}
+.popup_show .popup__content {
+	visibility: visible;
+	transform: scale(1);
+}
+.popup__wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100%;
+	flex: 1 1 auto;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.popup__content {
+	visibility: hidden;
+	transform: scale(0);
+	transition: transform 0.3s ease 0s;
+	background-color: $white;
+	padding: 0px 25px 32px 25px;
+	width: 100%;
+	max-width: 550px;
+	border-radius: 8px;
+	.lock & {
+		visibility: visible;
+	}
+	@media (max-width: $mobile) {
+		padding: 45px 15px 20px 15px;
+	}
+}
+
+.popup__close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: $red;
+	border-radius: 5px;
+	flex: 0 0 28px;
+	width: 28px;
+	height: 28px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: background-color 0.3s ease 0s;
+	&:hover {
+		background-color: #9c0007;
+	}
+}
+
+//========================================================================================================================================================
+
+.popup {
+	// .popup__video
+	&__video {
+		cursor: pointer;
+		position: relative;
+		width: 100%;
+		height: 500px;
+		border-radius: 8px;
+		overflow: hidden;
+		@media (max-width: $mobile) {
+			height: 450px;
+		}
+		@media (max-width: $mobileSmall) {
+			height: 250px;
+		}
+	}
+	// .popup__play
+	&__play {
+	}
+	// .popup__item-video
+	&__item-video {
+		position: absolute;
+		top: 0;
+		right: 0;
+		object-fit: cover;
+		cursor: pointer;
+		width: 100%;
+		height: 100%;
+		border-radius: 8px;
+	}
+}
+
+//========================================================================================================================================================
+
+.video {
+	.popup__content {
+		background: transparent;
+		padding: 0px 0px 0px 0px;
+		max-width: 900px;
+		box-shadow: none;
+		border-radius: 20px;
+	}
+}
+
+//========================================================================================================================================================
+
+#contact {
+	.forms__form {
+		padding: 0px 0px 0px 0px;
+	}
+	.forms__text {
+		max-width: 275px;
+		color: rgba(0, 0, 0, 0.6);
+		a {
+			color: $black;
+			border-bottom: 1px solid transparent;
+			transition: border-bottom 0.3s ease 0s;
+			&:hover {
+				border-bottom: 1px solid $black;
+			}
+		}
+		@media (max-width: $mobile) {
+			max-width: 300px;
+		}
+	}
+	.form__input {
+		input {
+			background: rgba(0, 0, 0, 0.05);
+			color: $mainColor;
+			&::placeholder {
+				color: rgba(0, 0, 0, 0.6);
+			}
+		}
+		textarea {
+			background: rgba(0, 0, 0, 0.05);
+			color: $mainColor;
+			&::placeholder {
+				color: rgba(0, 0, 0, 0.6);
+			}
+		}
+	}
+	.form__text {
+		text-align: center;
+		color: rgba(0, 0, 0, 0.6);
+		a {
+			color: $blue;
+			border-bottom: none;
+			transition: color 0.3s ease 0s;
+			&:hover {
+				color: $darkblue;
+				border-bottom: none;
+			}
+		}
+		@media (max-width: $mobileSmall) {
+			text-align: left;
+		}
+	}
+	.form__button {
+		width: 100% !important;
+		padding: 11px !important;
+		background-color: $blue !important;
+		color: $white !important;
+		&:hover {
+			background-color: #071a4f !important;
+		}
+	}
+}
+
+#thanks {
+	.forms__titles {
+		max-width: 100%;
+		padding: 52px 0px 0px 0px;
+		@media (max-width: $mobile) {
+			padding: 0px 0px 0px 0px;
+		}
+	}
+	.forms__title {
+		text-align: center;
+	}
+}

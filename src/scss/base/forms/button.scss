@@ -1,0 +1,47 @@
+.button-blue {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 600;
+	font-size: 11px;
+	line-height: 120%;
+	letter-spacing: -0.03em;
+	text-align: center;
+	color: $white;
+	border-radius: 5px;
+	padding: 11px 13px;
+	background-color: $blue;
+	transition:
+		background-color 0.3s ease 0s,
+		color 0.3s ease 0s;
+	&:hover {
+		background-color: #153ebc;
+	}
+	svg {
+		margin: 0px 0px 0px 6px;
+	}
+}
+
+.button-red {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 600;
+	font-size: 11px;
+	line-height: 120%;
+	letter-spacing: -0.03em;
+	text-align: center;
+	color: $white;
+	border-radius: 5px;
+	padding: 11px 13px;
+	background-color: $red;
+	transition:
+		background-color 0.3s ease 0s,
+		color 0.3s ease 0s;
+	&:hover {
+		background-color: #9c0007;
+	}
+	svg {
+		margin: 0px 0px 0px 6px;
+	}
+}
