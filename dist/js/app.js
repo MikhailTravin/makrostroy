@@ -16486,19 +16486,13 @@ PERFORMANCE OF THIS SOFTWARE.
                     btn.addEventListener("click", (e => {
                         e.stopPropagation();
                         const imageKey = btn.dataset.image;
-                        const isActive = btn.classList.contains("active");
+                        if (!imageKey) return;
                         floorButtons.forEach((b => b.classList.remove("active")));
                         pics.forEach((pic => pic.classList.remove("active")));
-                        if (isActive) {
-                            if (baseImage) baseImage.classList.remove("hidden");
-                            return;
-                        }
                         btn.classList.add("active");
                         if (baseImage) baseImage.classList.add("hidden");
-                        genplan.querySelectorAll(`.genplan__pic1 img[data-image="${imageKey}"], .genplan__pic2 img[data-image="${imageKey}"]`).forEach((img => {
-                            img.classList.add("active");
-                            if (img.parentElement) img.parentElement.classList.add("active");
-                        }));
+                        const target = genplan.querySelector(`.genplan__pic1[data-image="${imageKey}"], .genplan__pic2[data-image="${imageKey}"]`);
+                        if (target) target.classList.add("active");
                     }));
                 }));
             }));
