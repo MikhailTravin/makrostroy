@@ -5559,6 +5559,557 @@ p {
           transform: translate(0px, -50%);
 }
 
+.genplan {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 10;
+}
+
+.genplan__scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: -webkit-grab;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.genplan__scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.genplan__scroll.is-dragging {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.genplan__scroll.is-dragging .genplan__tippy,
+.genplan__scroll.is-dragging .genplan__path {
+  pointer-events: none;
+}
+
+.genplan__images {
+  width: 968px;
+  height: 544px;
+  position: relative;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin: 0 auto;
+}
+
+.genplan__image {
+  width: 968px;
+  height: 544px;
+}
+
+.genplan__pic1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 968px;
+  height: 100%;
+  background: #fff;
+  z-index: 51;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.genplan__pic1.active {
+  opacity: 1;
+}
+
+.genplan__pic1 img {
+  width: 90%;
+  height: auto;
+}
+
+.genplan__pic2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 968px;
+  height: 100%;
+  background: #fff;
+  z-index: 51;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.genplan__pic2.active {
+  opacity: 1;
+}
+
+.genplan__pic2 img {
+  width: 90%;
+  height: auto;
+}
+
+.genplan__svg {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 4;
+}
+
+.genplan__svg.svg-mob {
+  display: none;
+}
+
+.genplan__path {
+  -webkit-transition: fill 0.3s;
+  -o-transition: fill 0.3s;
+  transition: fill 0.3s;
+}
+
+.genplan__path.active {
+  fill: rgba(12, 39, 118, 0.65);
+}
+
+.genplan__tips {
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.genplan__tips.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.genplan__tippy {
+  cursor: pointer;
+  white-space: nowrap;
+  position: absolute;
+  top: 34%;
+  z-index: 30;
+  background-color: #fff;
+  color: #0c2776;
+  border-radius: 38px;
+  padding: 12px 11px;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 78%;
+  letter-spacing: -0.03em;
+  -webkit-transition: background-color 0.3s, color 0.3s;
+  -o-transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.genplan__tippy::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  -webkit-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+          transform: translate(-50%);
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 10px solid #fff;
+}
+
+.genplan__tippy.active {
+  color: #fff;
+  background: #cd7555;
+}
+
+.genplan__tippy.active::before {
+  content: "";
+  border-top: 10px solid #cd7555;
+}
+
+.genplan__tippy.tippy1 {
+  right: 10%;
+}
+
+.genplan__tippy.tippy2 {
+  right: 29%;
+}
+
+.genplan__tippy.tippy3 {
+  right: 48%;
+}
+
+.genplan__tippy.tippy4 {
+  left: 25%;
+}
+
+.genplan__tippy.tippy5 {
+  left: 5%;
+}
+
+.genplan__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px 20px;
+}
+
+.genplan__buttons .button-blue {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 calc(50% - 10px);
+          flex: 1 1 calc(50% - 10px);
+}
+
+.genplan__buttons .button-blue.active {
+  background-color: #272968;
+}
+
+.slide-genplan {
+  z-index: 2 !important;
+  height: 681px;
+}
+
+.genplan-button-objects {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 30;
+}
+
+.genplan-button-objects .switch-genplan {
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  opacity: 1;
+  padding: 10px 10px 10px 15px;
+  pointer-events: auto;
+  position: relative;
+  gap: 10px;
+}
+
+.genplan-button-objects .switch-genplan::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(12.4459619522px);
+          backdrop-filter: blur(12.4459619522px);
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.genplan-button-objects .switch-genplan__title {
+  position: relative;
+  z-index: 10;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.genplan-button-objects .toggle-switch {
+  position: relative;
+  z-index: 10;
+  width: 34px;
+  height: 20px;
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.genplan-button-objects .toggle-switch._active .toggle-switch-handle {
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+.genplan-button-objects .toggle-switch._active .toggle-switch-background {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.genplan-button-objects .toggle-switch._active .toggle-switch-background .toggle-switch-handle {
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+.genplan-button-objects .toggle-switch input[type=checkbox] {
+  display: none;
+}
+
+.genplan-button-objects .toggle-switch-background {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-radius: 23px;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  -o-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  top: 3px;
+  height: calc(100% - 6px);
+  overflow: visible;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.genplan-button-objects .toggle-switch-handle {
+  position: absolute;
+  bottom: -2.5px;
+  left: 0px;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.genplan-button-objects .toggle-switch input[type=checkbox]:checked + .toggle-switch-handle {
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+.genplan-button-objects .toggle-switch input[type=checkbox]:checked + .toggle-switch-background {
+  background-color: rgba(242, 171, 103, 0.5);
+}
+
+.genplan-button-objects .toggle-switch input[type=checkbox]:checked + .toggle-switch-background .toggle-switch-handle {
+  background-color: rgb(242, 171, 103);
+  -webkit-transform: translateX(13px);
+      -ms-transform: translateX(13px);
+          transform: translateX(13px);
+}
+
+.block-genplan-popup {
+  position: absolute;
+  z-index: 50;
+  width: 245px;
+  top: 25%;
+  opacity: 1;
+  pointer-events: auto;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.block-genplan-popup.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.block-genplan-popup.popup1 {
+  right: 18%;
+}
+
+.block-genplan-popup.popup2 {
+  right: 4%;
+}
+
+.block-genplan-popup.popup3 {
+  right: 23%;
+}
+
+.block-genplan-popup.popup4 {
+  left: 33%;
+}
+
+.block-genplan-popup.popup5 {
+  left: 13%;
+}
+
+.card-apartments {
+  background: #fff;
+  border-radius: 6px;
+  padding: 15px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+  position: relative;
+}
+
+.card-apartments__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 20px;
+}
+
+.card-apartments__titles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2px;
+}
+
+.card-apartments__title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 85%;
+  letter-spacing: -0.02em;
+  color: #050505;
+}
+
+.card-apartments__price {
+  font-family: var(--second-family);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 123%;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #1b53ff;
+}
+
+.card-apartments__tag {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  background: #cd7555;
+  border-radius: 2px;
+  padding: 3px 5px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 123%;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+}
+
+.card-apartments__image {
+  background: #e1e0e0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3px 0px;
+  width: 100%;
+  height: auto;
+}
+
+.card-apartments__image img {
+  width: 100%;
+  height: auto;
+}
+
+.card-apartments__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 15px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.card-apartments__bottom ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  gap: 7px 10px;
+}
+
+.card-apartments__bottom ul li {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 85%;
+}
+
+.card-apartments__bottom .btn {
+  width: 162px;
+}
+
+.card-apartments__bottom .btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .property {
   padding: 50px 0px;
 }
@@ -11211,6 +11762,102 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
 }
 
+@media (max-width: 768px) {
+  .genplan__images {
+    width: 800px;
+    height: 450px;
+  }
+
+  .genplan__image {
+    width: 800px;
+    height: 450px;
+  }
+
+  .genplan__pic1 {
+    width: 800px;
+  }
+
+  .genplan__pic2 {
+    width: 800px;
+  }
+
+  .genplan__svg.svg-desc {
+    display: none;
+  }
+
+  .genplan__svg.svg-mob {
+    display: block;
+  }
+
+  .genplan__tippy::before {
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+  }
+
+  .genplan__tippy.tippy1 {
+    right: 9%;
+  }
+
+  .genplan__tippy.tippy2 {
+    right: 27%;
+  }
+
+  .genplan__tippy.tippy3 {
+    right: 46%;
+  }
+
+  .genplan__tippy.tippy4 {
+    left: 23%;
+  }
+
+  .genplan__tippy.tippy5 {
+    left: 4%;
+  }
+
+  .genplan__buttons {
+    gap: 10px;
+  }
+
+  .genplan__buttons .button-blue {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 calc(50% - 5px);
+            flex: 1 1 calc(50% - 5px);
+  }
+
+  .block-genplan-popup {
+    top: 10%;
+  }
+
+  .block-genplan-popup.popup1 {
+    right: 21%;
+  }
+
+  .block-genplan-popup.popup2 {
+    right: 40%;
+  }
+
+  .block-genplan-popup.popup3 {
+    right: 14%;
+  }
+
+  .block-genplan-popup.popup4 {
+    left: 36%;
+  }
+
+  .block-genplan-popup.popup5 {
+    left: 17%;
+  }
+
+  .card-apartments {
+    padding: 15px;
+  }
+
+  .card-apartments__bottom .btn {
+    min-height: 30px;
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 767.98px) {
   .checkbox {
     padding: 1px;
@@ -12899,6 +13546,15 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
   .tabs-product-card__slide img {
     max-height: 128px;
+  }
+}
+
+@media (max-width: 550px) {
+  .genplan__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
