@@ -16444,37 +16444,9 @@ PERFORMANCE OF THIS SOFTWARE.
             }));
         }));
         document.addEventListener("DOMContentLoaded", (() => {
-            document.querySelectorAll(".slide-genplan").forEach((slide => {
-                slide.removeAttribute("data-gallery");
-                slide.removeAttribute("data-fancybox");
-                slide.removeAttribute("data-lg-id");
-                slide.removeAttribute("data-lightbox");
-                slide.removeAttribute("data-src");
-                if ("A" === slide.tagName) {
-                    slide.removeAttribute("href");
-                    slide.removeAttribute("target");
-                    slide.removeAttribute("rel");
-                }
-            }));
-            const INTERACTIVE = [ ".genplan__tippy", ".genplan__path", ".block-genplan-popup", ".genplan__buttons .button-blue", ".genplan-button-objects", ".switch-genplan", ".toggle-switch", 'input[type="checkbox"]' ];
-            const isInteractive = target => INTERACTIVE.some((sel => target.closest(sel)));
-            [ "click", "pointerdown", "mousedown", "touchstart" ].forEach((type => {
-                document.addEventListener(type, (e => {
-                    const slide = e.target.closest(".slide-genplan");
-                    if (!slide) return;
-                    if (isInteractive(e.target)) return;
-                    e.stopPropagation();
-                    e.stopImmediatePropagation();
-                }), {
-                    capture: true,
-                    passive: true
-                });
-            }));
             document.querySelectorAll(".genplan__tippy").forEach((button => {
                 button.addEventListener("click", (e => {
                     e.stopPropagation();
-                    const scrollEl = button.closest(".genplan__scroll");
-                    if (scrollEl && "1" === scrollEl.dataset.dragged) return;
                     const house = button.dataset.house;
                     const isActive = button.classList.contains("active");
                     document.querySelectorAll(".genplan__tippy").forEach((b => b.classList.remove("active")));
@@ -16489,8 +16461,6 @@ PERFORMANCE OF THIS SOFTWARE.
             document.querySelectorAll(".genplan__path").forEach((path => {
                 path.addEventListener("click", (e => {
                     e.stopPropagation();
-                    const scrollEl = path.closest(".genplan__scroll");
-                    if (scrollEl && "1" === scrollEl.dataset.dragged) return;
                     const house = path.dataset.house;
                     const isActive = path.classList.contains("active");
                     document.querySelectorAll(".genplan__tippy").forEach((b => b.classList.remove("active")));
@@ -16503,28 +16473,26 @@ PERFORMANCE OF THIS SOFTWARE.
                     if (targetBtn) targetBtn.classList.add("active");
                 }));
             }));
-            document.addEventListener("click", (e => {
-                const btn = e.target.closest(".genplan__buttons .button-blue");
-                if (!btn) return;
-                const scrollEl = btn.closest(".genplan")?.querySelector(".genplan__scroll");
-                if (scrollEl && "1" === scrollEl.dataset.dragged) return;
-                e.stopPropagation();
-                const imageKey = btn.dataset.image;
-                const isActive = btn.classList.contains("active");
-                document.querySelectorAll(".genplan__buttons .button-blue").forEach((b => b.classList.remove("active")));
-                document.querySelectorAll(".genplan__pic1, .genplan__pic2").forEach((pic => pic.classList.remove("active")));
-                const baseImage = document.querySelector(".genplan__image");
-                if (isActive) {
-                    if (baseImage) baseImage.classList.remove("hidden");
-                    return;
-                }
-                btn.classList.add("active");
-                if (baseImage) baseImage.classList.add("hidden");
-                document.querySelectorAll(`.genplan__pic1 img[data-image="${imageKey}"], .genplan__pic2 img[data-image="${imageKey}"]`).forEach((img => {
-                    img.classList.add("active");
-                    if (img.parentElement) img.parentElement.classList.add("active");
+            document.querySelectorAll(".genplan__buttons .button-blue").forEach((btn => {
+                btn.addEventListener("click", (e => {
+                    e.stopPropagation();
+                    const imageKey = btn.dataset.image;
+                    const isActive = btn.classList.contains("active");
+                    document.querySelectorAll(".genplan__buttons .button-blue").forEach((b => b.classList.remove("active")));
+                    document.querySelectorAll(".genplan__pic1, .genplan__pic2").forEach((pic => pic.classList.remove("active")));
+                    const baseImage = document.querySelector(".genplan__image");
+                    if (isActive) {
+                        if (baseImage) baseImage.classList.remove("hidden");
+                        return;
+                    }
+                    btn.classList.add("active");
+                    if (baseImage) baseImage.classList.add("hidden");
+                    document.querySelectorAll(`.genplan__pic1 img[data-image="${imageKey}"], .genplan__pic2 img[data-image="${imageKey}"]`).forEach((img => {
+                        img.classList.add("active");
+                        if (img.parentElement) img.parentElement.classList.add("active");
+                    }));
                 }));
-            }), true);
+            }));
             document.addEventListener("click", (e => {
                 if (e.target.closest(".genplan__tippy")) return;
                 if (e.target.closest(".genplan__path")) return;
@@ -16532,115 +16500,6 @@ PERFORMANCE OF THIS SOFTWARE.
                 document.querySelectorAll(".genplan__tippy").forEach((b => b.classList.remove("active")));
                 document.querySelectorAll(".genplan__path").forEach((p => p.classList.remove("active")));
                 document.querySelectorAll(".block-genplan-popup").forEach((popup => popup.classList.remove("active")));
-            }));
-            document.querySelectorAll(".genplan__scroll").forEach((scrollEl => {
-                const EDGE = 1;
-                const THRESHOLD = 5;
-                scrollEl.dataset.dragged = "0";
-                const isFormControl = t => t.closest(".toggle-switch") || t.closest('input[type="checkbox"]');
-                let isDown = false;
-                let startX = 0;
-                let startScrollLeft = 0;
-                let moved = false;
-                scrollEl.addEventListener("mousedown", (e => {
-                    if (isFormControl(e.target)) return;
-                    isDown = true;
-                    moved = false;
-                    startX = e.pageX;
-                    startScrollLeft = scrollEl.scrollLeft;
-                }));
-                window.addEventListener("mouseup", (() => {
-                    if (!isDown) return;
-                    isDown = false;
-                    scrollEl.classList.remove("is-dragging");
-                    requestAnimationFrame((() => {
-                        scrollEl.dataset.dragged = "0";
-                    }));
-                }));
-                window.addEventListener("mousemove", (e => {
-                    if (!isDown) return;
-                    const dx = e.pageX - startX;
-                    if (Math.abs(dx) > THRESHOLD) {
-                        moved = true;
-                        scrollEl.dataset.dragged = "1";
-                        scrollEl.classList.add("is-dragging");
-                    }
-                    if (moved) {
-                        e.preventDefault();
-                        scrollEl.scrollLeft = startScrollLeft - dx;
-                    }
-                }));
-                let touchStartX = 0;
-                let touchStartScrollLeft = 0;
-                let touchMoved = false;
-                let swiperReleased = false;
-                scrollEl.addEventListener("touchstart", (e => {
-                    if (isFormControl(e.target)) return;
-                    touchStartX = e.touches[0].pageX;
-                    touchStartScrollLeft = scrollEl.scrollLeft;
-                    touchMoved = false;
-                    swiperReleased = false;
-                }), {
-                    passive: true
-                });
-                scrollEl.addEventListener("touchmove", (e => {
-                    if (isFormControl(e.target)) return;
-                    const x = e.touches[0].pageX;
-                    const dx = x - touchStartX;
-                    if (swiperReleased) return;
-                    if (Math.abs(dx) > THRESHOLD) {
-                        touchMoved = true;
-                        scrollEl.dataset.dragged = "1";
-                        scrollEl.classList.add("is-dragging");
-                    }
-                    if (!touchMoved) return;
-                    const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
-                    const current = scrollEl.scrollLeft;
-                    const goingLeft = dx < 0;
-                    const goingRight = dx > 0;
-                    const atRightEdge = current >= maxScroll - EDGE;
-                    const atLeftEdge = current <= EDGE;
-                    if (goingLeft && atRightEdge || goingRight && atLeftEdge) {
-                        swiperReleased = true;
-                        scrollEl.classList.remove("is-dragging");
-                        return;
-                    }
-                    scrollEl.scrollLeft = touchStartScrollLeft - dx;
-                    e.stopPropagation();
-                }), {
-                    passive: true
-                });
-                scrollEl.addEventListener("touchend", (() => {
-                    scrollEl.classList.remove("is-dragging");
-                    requestAnimationFrame((() => {
-                        scrollEl.dataset.dragged = "0";
-                    }));
-                }));
-                const centerScroll = () => {
-                    if (scrollEl.scrollWidth > scrollEl.clientWidth) scrollEl.scrollLeft = (scrollEl.scrollWidth - scrollEl.clientWidth) / 2;
-                };
-                window.addEventListener("load", centerScroll);
-                centerScroll();
-            }));
-            document.querySelectorAll(".genplan").forEach((genplan => {
-                const toggle = genplan.querySelector('input[type="checkbox"]');
-                const tips = genplan.querySelector(".genplan__tips");
-                const switchLabel = genplan.querySelector(".toggle-switch");
-                if (!toggle || !tips) return;
-                const syncTips = () => {
-                    if (toggle.checked) {
-                        tips.classList.add("active");
-                        if (switchLabel) switchLabel.classList.add("_active");
-                    } else {
-                        tips.classList.remove("active");
-                        if (switchLabel) switchLabel.classList.remove("_active");
-                        document.querySelectorAll(".genplan__tippy").forEach((b => b.classList.remove("active")));
-                        document.querySelectorAll(".genplan__path").forEach((p => p.classList.remove("active")));
-                        document.querySelectorAll(".block-genplan-popup").forEach((popup => popup.classList.remove("active")));
-                    }
-                };
-                toggle.addEventListener("change", syncTips);
-                syncTips();
             }));
         }));
         window["FLS"] = false;

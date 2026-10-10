@@ -5560,6 +5560,10 @@ p {
 }
 
 .genplan {
+  padding: 70px 0px;
+}
+
+.genplan__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5601,8 +5605,8 @@ p {
 }
 
 .genplan__images {
-  width: 968px;
-  height: 544px;
+  width: 1112px;
+  height: 626px;
   position: relative;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -5610,8 +5614,8 @@ p {
 }
 
 .genplan__image {
-  width: 968px;
-  height: 544px;
+  width: 1112px;
+  height: 626px;
 }
 
 .genplan__pic1 {
@@ -5630,7 +5634,7 @@ p {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 968px;
+  width: 1112px;
   height: 100%;
   background: #fff;
   z-index: 51;
@@ -5666,7 +5670,7 @@ p {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 968px;
+  width: 1112px;
   height: 100%;
   background: #fff;
   z-index: 51;
@@ -5705,19 +5709,6 @@ p {
 
 .genplan__path.active {
   fill: rgba(12, 39, 118, 0.65);
-}
-
-.genplan__tips {
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-}
-
-.genplan__tips.active {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .genplan__tippy {
@@ -5944,23 +5935,23 @@ p {
 }
 
 .block-genplan-popup.popup1 {
-  right: 18%;
+  right: 19%;
 }
 
 .block-genplan-popup.popup2 {
-  right: 4%;
+  right: 6%;
 }
 
 .block-genplan-popup.popup3 {
-  right: 23%;
+  right: 25%;
 }
 
 .block-genplan-popup.popup4 {
-  left: 33%;
+  left: 35%;
 }
 
 .block-genplan-popup.popup5 {
-  left: 13%;
+  left: 15%;
 }
 
 .card-apartments {
@@ -11293,6 +11284,17 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
 }
 
+@media (max-width: 1112px) {
+  .genplan__container {
+    padding: 0px 0px 0px 0px;
+  }
+
+  .genplan__buttons {
+    margin: 0px 15px;
+    width: calc(100% - 30px);
+  }
+}
+
 @media (max-width: 991.98px) {
   .product-card-tabs__column {
     -webkit-box-flex: 0;
@@ -11763,6 +11765,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 }
 
 @media (max-width: 768px) {
+  .genplan {
+    padding: 50px 0px;
+  }
+
   .genplan__images {
     width: 800px;
     height: 450px;
