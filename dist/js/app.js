@@ -16456,10 +16456,11 @@ PERFORMANCE OF THIS SOFTWARE.
                     slide.removeAttribute("rel");
                 }
             }));
+            const INTERACTIVE = [ ".genplan__tippy", ".genplan__path", ".block-genplan-popup", ".genplan__buttons" ];
             document.addEventListener("click", (e => {
                 const slide = e.target.closest(".slide-genplan");
                 if (!slide) return;
-                if (e.target.closest(".genplan__tippy") || e.target.closest(".genplan__path") || e.target.closest(".block-genplan-popup") || e.target.closest(".genplan__buttons") || e.target.closest(".genplan-button-objects") || e.target.closest(".toggle-switch")) return;
+                for (const sel of INTERACTIVE) if (e.target.closest(sel)) return;
                 e.stopPropagation();
                 e.stopImmediatePropagation();
             }), true);
@@ -16467,7 +16468,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 document.addEventListener(type, (e => {
                     const slide = e.target.closest(".slide-genplan");
                     if (!slide) return;
-                    if (e.target.closest(".genplan__tippy") || e.target.closest(".genplan__path") || e.target.closest(".block-genplan-popup") || e.target.closest(".genplan__buttons") || e.target.closest(".genplan-button-objects") || e.target.closest(".toggle-switch")) return;
+                    for (const sel of INTERACTIVE) if (e.target.closest(sel)) return;
                     e.stopPropagation();
                     e.stopImmediatePropagation();
                 }), {
@@ -16525,6 +16526,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 let startScrollLeft = 0;
                 let moved = false;
                 scrollEl.addEventListener("mousedown", (e => {
+                    if (e.target.closest(".toggle-switch") || e.target.closest('input[type="checkbox"]')) return;
                     isDown = true;
                     moved = false;
                     startX = e.pageX;
@@ -16556,6 +16558,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 let touchMoved = false;
                 let swiperReleased = false;
                 scrollEl.addEventListener("touchstart", (e => {
+                    if (e.target.closest(".toggle-switch") || e.target.closest('input[type="checkbox"]')) return;
                     touchStartX = e.touches[0].pageX;
                     touchStartScrollLeft = scrollEl.scrollLeft;
                     touchMoved = false;
@@ -16564,6 +16567,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     passive: true
                 });
                 scrollEl.addEventListener("touchmove", (e => {
+                    if (e.target.closest(".toggle-switch") || e.target.closest('input[type="checkbox"]')) return;
                     const x = e.touches[0].pageX;
                     const dx = x - touchStartX;
                     if (swiperReleased) return;
