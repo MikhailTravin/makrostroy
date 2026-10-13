@@ -16487,8 +16487,13 @@ PERFORMANCE OF THIS SOFTWARE.
                         e.stopPropagation();
                         const imageKey = btn.dataset.image;
                         if (!imageKey) return;
+                        const isActive = btn.classList.contains("active");
                         floorButtons.forEach((b => b.classList.remove("active")));
                         pics.forEach((pic => pic.classList.remove("active")));
+                        if (isActive) {
+                            if (baseImage) baseImage.classList.remove("hidden");
+                            return;
+                        }
                         btn.classList.add("active");
                         if (baseImage) baseImage.classList.add("hidden");
                         const target = genplan.querySelector(`.genplan__pic1[data-image="${imageKey}"], .genplan__pic2[data-image="${imageKey}"]`);
