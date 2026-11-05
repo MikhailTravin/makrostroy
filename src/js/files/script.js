@@ -535,3 +535,108 @@ document.querySelectorAll('.product-card-tabs__sun-position').forEach(button => 
         sunLine.classList.toggle('_active');
     });
 });
+
+//========================================================================================================================================================
+
+function initGenplan() {
+    const genplans = document.querySelectorAll('.genplan');
+    if (!genplans.length) return;
+
+    genplans.forEach(genplan => {
+        const tippies = genplan.querySelectorAll('.genplan__tippy');
+        const paths = genplan.querySelectorAll('.genplan__path');
+        const popups = genplan.querySelectorAll('.block-genplan-popup');
+        const floorButtons = genplan.querySelectorAll('.genplan__buttons .button-blue');
+        const baseImage = genplan.querySelector('.genplan__image');
+        const pics = genplan.querySelectorAll('.genplan__pic1, .genplan__pic2');
+
+        tippies.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                const house = button.dataset.house;
+                const isActive = button.classList.contains('active');
+
+                tippies.forEach(b => b.classList.remove('active'));
+                paths.forEach(p => p.classList.remove('active'));
+                popups.forEach(popup => popup.classList.remove('active'));
+
+                if (isActive) return;
+
+                button.classList.add('active');
+
+                genplan
+                    .querySelectorAll(`.genplan__path[data-house="${house}"]`)
+                    .forEach(p => p.classList.add('active'));
+
+                genplan
+                    .querySelectorAll(`.block-genplan-popup[data-house="${house}"]`)
+                    .forEach(popup => popup.classList.add('active'));
+            });
+        });
+
+        paths.forEach(path => {
+            path.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                const house = path.dataset.house;
+                const isActive = path.classList.contains('active');
+
+                tippies.forEach(b => b.classList.remove('active'));
+                paths.forEach(p => p.classList.remove('active'));
+                popups.forEach(popup => popup.classList.remove('active'));
+
+                if (isActive) return;
+
+                genplan
+                    .querySelectorAll(`.genplan__path[data-house="${house}"]`)
+                    .forEach(p => p.classList.add('active'));
+
+                genplan
+                    .querySelectorAll(`.block-genplan-popup[data-house="${house}"]`)
+                    .forEach(popup => popup.classList.add('active'));
+
+                const targetBtn = genplan.querySelector(`.genplan__tippy[data-house="${house}"]`);
+                if (targetBtn) targetBtn.classList.add('active');
+            });
+        });
+
+        floorButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                const imageKey = btn.dataset.image;
+                if (!imageKey) return;
+
+                const isActive = btn.classList.contains('active');
+
+                floorButtons.forEach(b => b.classList.remove('active'));
+                pics.forEach(pic => pic.classList.remove('active'));
+
+                if (isActive) {
+                    if (baseImage) baseImage.classList.remove('hidden');
+                    return;
+                }
+
+                btn.classList.add('active');
+
+                if (baseImage) baseImage.classList.add('hidden');
+
+                const target = genplan.querySelector(`.genplan__pic1[data-image="${imageKey}"], .genplan__pic2[data-image="${imageKey}"]`);
+                if (target) target.classList.add('active');
+            });
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.genplan__tippy')) return;
+        if (e.target.closest('.genplan__path')) return;
+        if (e.target.closest('.block-genplan-popup')) return;
+
+        document.querySelectorAll('.genplan__tippy').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.genplan__path').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.block-genplan-popup').forEach(popup => popup.classList.remove('active'));
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initGenplan);
